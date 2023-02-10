@@ -427,6 +427,54 @@ db.firstcollection.find({$or:[ {hometown:"Delhi"},{City:"Bangalore"}]})
 
 
 Using $and and $or operator together :
+db.firstcollection.find( {"$or":[ {"$and": [{hometown: "Delhi"}, {students:{$gt:10}}] }, {City : "Bangalore" } ] } );
+[
+  {
+    _id: ObjectId("63dccaa7506d9549fea5fd77"),
+    name: 'Adi',
+    studentid: 49,
+    income: 100000,
+    hometown: 'Bhopal',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccab7506d9549fea5fd78"),
+    name: 'Ajeya',
+    studentid: 5,
+    income: 0,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccac8506d9549fea5fd7a"),
+    name: 'Vidushi',
+    studentid: 55,
+    income: 80000,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccad8506d9549fea5fd7b"),
+    name: 'Devyani',
+    studentid: 9,
+    income: 0,
+    hometown: 'Jaipur',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccb24506d9549fea5fd82"),
+    name: 'Kartik',
+    studentid: 31,
+    income: 95000,
+    hometown: 'Noida',
+    City: 'Bangalore'
+  }
+]
+
+
+Template for using $and $or together :
+db.collection_name.find( {"$or":[ {"$and": [{key: value}, {key:value}] }, {key : value} ] } );
+
 
 
 
