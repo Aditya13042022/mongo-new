@@ -342,6 +342,91 @@ Atlas atlas-ldauwg-shard-0 [primary] newdb> db.firstcollection.find().sort({inco
 ]
 
 
+Using $and operator :
+Atlas atlas-ldauwg-shard-0 [primary] newdb> db.firstcollection.find({$and:[ {hometown:"Delhi"},{City:"Bangalore"}]})
+[
+  {
+    _id: ObjectId("63dccab7506d9549fea5fd78"),
+    name: 'Ajeya',
+    studentid: 5,
+    income: 0,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccac8506d9549fea5fd7a"),
+    name: 'Vidushi',
+    studentid: 55,
+    income: 80000,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  }
+]
+
+
+Using or operator:
+db.firstcollection.find({$or:[ {hometown:"Delhi"},{City:"Bangalore"}]})
+[
+  {
+    _id: ObjectId("63dccaa7506d9549fea5fd77"),
+    name: 'Adi',
+    studentid: 49,
+    income: 100000,
+    hometown: 'Bhopal',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccab7506d9549fea5fd78"),
+    name: 'Ajeya',
+    studentid: 5,
+    income: 0,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccac8506d9549fea5fd7a"),
+    name: 'Vidushi',
+    studentid: 55,
+    income: 80000,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccad8506d9549fea5fd7b"),
+    name: 'Devyani',
+    studentid: 9,
+    income: 0,
+    hometown: 'Jaipur',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccae5506d9549fea5fd7d"),
+    name: 'Saurabh',
+    studentid: 43,
+    income: 500000,
+    hometown: 'Delhi',
+    City: 'Hyderabad'
+  },
+  {
+    _id: ObjectId("63dccb24506d9549fea5fd82"),
+    name: 'Kartik',
+    studentid: 31,
+    income: 95000,
+    hometown: 'Noida',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dce08a506d9549fea5fd9d"),
+    name: 'Kanishka Jaiswal',
+    studentid: 26,
+    income: 2000,
+    hometown: 'Delhi',
+    City: 'Delhi'
+  }
+]
+
+
+Using $and and $or operator together :
 
 
 
