@@ -1,0 +1,251 @@
+Database name : newdb
+Collection name : firstcollection
+
+Add collection : db.createCollection(collection_name)
+Add a value : db.insertOne({key:value})
+Add multiple values : db.insertMany([{key:value},{key:value}])
+
+Show database :
+db.firstcollection.find()
+[
+  {
+    _id: ObjectId("63dccaa7506d9549fea5fd77"),
+    name: 'Adi',
+    studentid: 49,
+    income: 100000,
+    hometown: 'Bhopal',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccab7506d9549fea5fd78"),
+    name: 'Ajeya',
+    studentid: 5,
+    income: 50000,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccac8506d9549fea5fd7a"),
+    name: 'Vidushi',
+    studentid: 55,
+    income: 80000,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccad8506d9549fea5fd7b"),
+    name: 'Devyani',
+    studentid: 9,
+    income: 90000,
+    hometown: 'Jaipur',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccae5506d9549fea5fd7d"),
+    name: 'Saurabh',
+    studentid: 43,
+    income: 500000,
+    hometown: 'Delhi',
+    City: 'Hyderabad'
+  },
+  {
+    _id: ObjectId("63dccb03506d9549fea5fd80"),
+    name: 'Akshit',
+    studentid: 6,
+    income: 500,
+    hometown: 'Assam',
+    City: 'Delhi'
+  },
+  {
+    _id: ObjectId("63dccb24506d9549fea5fd82"),
+    name: 'Kartik',
+    studentid: 31,
+    income: 95000,
+    hometown: 'Noida',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd98"),
+    name: 'Vritika',
+    studentid: 55,
+    income: 90000,
+    hometown: 'Chandigarh',
+    City: 'Hyderabad'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd9b"),
+    name: 'Pullu',
+    studentid: 35,
+    income: 200000,
+    hometown: 'Hayana',
+    City: 'Balgarh'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd99"),
+    name: 'Khushboo',
+    studentid: 29,
+    income: 100000,
+    hometown: 'Chandigarh',
+    City: 'Noida'
+  },
+  {
+    _id: ObjectId("63dce08a506d9549fea5fd9d"),
+    name: 'Mori',
+    studentid: 26,
+    income: 2000,
+    hometown: 'Delhi',
+    City: 'Delhi'
+  }
+]
+
+
+Find one document :
+db.firstcollection.findOne({City:"Delhi"})
+{
+  _id: ObjectId("63dccb03506d9549fea5fd80"),
+  name: 'Akshit',
+  studentid: 6,
+  income: 500,
+  hometown: 'Assam',
+  City: 'Delhi'
+}
+
+
+
+Find many documents :
+db.firstcollection.find({City:"Delhi"})
+[
+  {
+    _id: ObjectId("63dccb03506d9549fea5fd80"),
+    name: 'Akshit',
+    studentid: 6,
+    income: 500,
+    hometown: 'Assam',
+    City: 'Delhi'
+  },
+  {
+    _id: ObjectId("63dce08a506d9549fea5fd9d"),
+    name: 'Mori',
+    studentid: 26,
+    income: 2000,
+    hometown: 'Delhi',
+    City: 'Delhi'
+  }
+]
+
+
+Update one document :
+db.firstcollection.updateOne({name:"Mori"},{$set : {name:"Kanishka Jaiswal"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+Update Multiple documents: Set the income as 0 of all those whose student id is less than($lt opeartor) 10.
+
+db.firstcollection.updateMany({studentid:{$lt:10}},{$set :{income : 0}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+Atlas atlas-ldauwg-shard-0 [primary] newdb> db.firstcollection.find().pretty()
+[
+  {
+    _id: ObjectId("63dccaa7506d9549fea5fd77"),
+    name: 'Adi',
+    studentid: 49,
+    income: 100000,
+    hometown: 'Bhopal',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccab7506d9549fea5fd78"),
+    name: 'Ajeya',
+    studentid: 5,
+    income: 0,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccac8506d9549fea5fd7a"),
+    name: 'Vidushi',
+    studentid: 55,
+    income: 80000,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccad8506d9549fea5fd7b"),
+    name: 'Devyani',
+    studentid: 9,
+    income: 0,
+    hometown: 'Jaipur',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccae5506d9549fea5fd7d"),
+    name: 'Saurabh',
+    studentid: 43,
+    income: 500000,
+    hometown: 'Delhi',
+    City: 'Hyderabad'
+  },
+  {
+    _id: ObjectId("63dccb03506d9549fea5fd80"),
+    name: 'Akshit',
+    studentid: 6,
+    income: 0,
+    hometown: 'Assam',
+    City: 'Delhi'
+  },
+  {
+    _id: ObjectId("63dccb24506d9549fea5fd82"),
+    name: 'Kartik',
+    studentid: 31,
+    income: 95000,
+    hometown: 'Noida',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd98"),
+    name: 'Vritika',
+    studentid: 55,
+    income: 90000,
+    hometown: 'Chandigarh',
+    City: 'Hyderabad'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd9b"),
+    name: 'Pullu',
+    studentid: 35,
+    income: 200000,
+    hometown: 'Hayana',
+    City: 'Balgarh'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd99"),
+    name: 'Khushboo',
+    studentid: 29,
+    income: 100000,
+    hometown: 'Chandigarh',
+    City: 'Noida'
+  },
+  {
+    _id: ObjectId("63dce08a506d9549fea5fd9d"),
+    name: 'Kanishka Jaiswal',
+    studentid: 26,
+    income: 2000,
+    hometown: 'Delhi',
+    City: 'Delhi'
+  }
+]
+
+
+
