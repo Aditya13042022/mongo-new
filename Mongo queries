@@ -248,4 +248,100 @@ Atlas atlas-ldauwg-shard-0 [primary] newdb> db.firstcollection.find().pretty()
 ]
 
 
+Aggregation function $sort :
+Atlas atlas-ldauwg-shard-0 [primary] newdb> db.firstcollection.find().sort({income:1})
+[
+  {
+    _id: ObjectId("63dccab7506d9549fea5fd78"),
+    name: 'Ajeya',
+    studentid: 5,
+    income: 0,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccad8506d9549fea5fd7b"),
+    name: 'Devyani',
+    studentid: 9,
+    income: 0,
+    hometown: 'Jaipur',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccb03506d9549fea5fd80"),
+    name: 'Akshit',
+    studentid: 6,
+    income: 0,
+    hometown: 'Assam',
+    City: 'Delhi'
+  },
+  {
+    _id: ObjectId("63dce08a506d9549fea5fd9d"),
+    name: 'Kanishka Jaiswal',
+    studentid: 26,
+    income: 2000,
+    hometown: 'Delhi',
+    City: 'Delhi'
+  },
+  {
+    _id: ObjectId("63dccac8506d9549fea5fd7a"),
+    name: 'Vidushi',
+    studentid: 55,
+    income: 80000,
+    hometown: 'Delhi',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd98"),
+    name: 'Vritika',
+    studentid: 55,
+    income: 90000,
+    hometown: 'Chandigarh',
+    City: 'Hyderabad'
+  },
+  {
+    _id: ObjectId("63dccb24506d9549fea5fd82"),
+    name: 'Kartik',
+    studentid: 31,
+    income: 95000,
+    hometown: 'Noida',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dccaa7506d9549fea5fd77"),
+    name: 'Adi',
+    studentid: 49,
+    income: 100000,
+    hometown: 'Bhopal',
+    City: 'Bangalore'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd99"),
+    name: 'Khushboo',
+    studentid: 29,
+    income: 100000,
+    hometown: 'Chandigarh',
+    City: 'Noida'
+  },
+  {
+    _id: ObjectId("63dce049506d9549fea5fd9b"),
+    name: 'Pullu',
+    studentid: 35,
+    income: 200000,
+    hometown: 'Hayana',
+    City: 'Balgarh'
+  },
+  {
+    _id: ObjectId("63dccae5506d9549fea5fd7d"),
+    name: 'Saurabh',
+    studentid: 43,
+    income: 500000,
+    hometown: 'Delhi',
+    City: 'Hyderabad'
+  }
+]
+
+
+
+
 
